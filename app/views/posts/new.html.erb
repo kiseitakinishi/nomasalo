@@ -1,0 +1,9 @@
+<p>Post your travel plan</p>
+<%= form_tag("/posts/create") do %>
+  <% @post.errors.full_messages.each do |message| %>
+    <%= message%>
+  <% end %>
+
+<p><textarea name="content"></textarea></p>
+<input type="submit" value="POST">
+<% end %>

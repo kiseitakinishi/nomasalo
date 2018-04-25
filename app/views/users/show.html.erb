@@ -5,6 +5,15 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <h2>
+        <ul>
+        <li><%= @user.email %></li>
+        <li><%= @user.sex %></li>
+        <li><%= @user.age %></li>
+        <li><%= @user.country %></li>
+        </ul>
+      </h2>
+      <p><%= link_to "Edit your information", edit_user_path(current_user) %></p>
     </section>
   </aside>
 </div>

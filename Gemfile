@@ -17,11 +17,10 @@ gem 'bootstrap-sass'
 gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use ActiveModel has_secure_password
 gem 'bcrypt'
-
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

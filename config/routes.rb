@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'posts/index' => "posts#index"
-  get 'posts/new' => "posts#new"
-  post 'posts/create' => "posts#create"
-  get "posts/:id/edit" => "posts#edit"
-  post "posts/:id/update" => "posts#update"
-  post "posts/:id/destroy" => "posts#destroy"
-  get "posts/:id" => "posts#show"
   root 'home#top'
 
   get  '/signup',  to: 'users#new'
@@ -16,7 +9,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-
+  resources :posts
+  resources :messages 
   resources :users
 
   get "about" => "home#about"

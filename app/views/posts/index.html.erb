@@ -1,7 +1,26 @@
 <h1>Posting lists</h1>
 
-<% @posts.each do |post| %>
-<ul>
-<li><%= link_to(post.content, "/posts/#{post.id}") %></li>
-</ul>
-<% end %>
+
+<table class="table">
+  <thead>
+    <% @posts.each do |post| %>
+  	  <tbody>
+    		<tr>
+    			<td>name</td>
+    			<td><%= post.user.name %></td>
+    		</tr>
+    		<tr>
+    			<td>job</td>
+    			<td><%= post.job %></td>
+    		</tr>
+    		<tr>
+    			<td>term</td>
+    			<td><%= post.start_date %> ~ <%= post.end_date %></td>
+    		</tr>
+    		<tr>
+    			<td>comment</td>
+    			<td><%= post.content %></td>
+    		</tr>
+  	  <% end %>
+    </tbody>
+</table>

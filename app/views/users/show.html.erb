@@ -7,11 +7,12 @@
       <ul>
         <li><%= @user.email %></li>
         <li><%= @user.sex %></li>
-        <li><%= @user.age %></li>
+        <li><%= @user.age.strftime("%Y-%m-%d %H:%M:%S") %></li>
         <li><%= @user.country %></li>
       </ul>
+      <p><%= link_to "Post your plan", new_post_path ,class:"btn btn-block btn-info" %></p>
       <p><%= link_to "Edit your information", edit_user_path(current_user),class:"btn btn-block btn-success"%></p>
-      <p><%= link_to "Send your message", message_path(@user.id) ,class:"btn btn-block btn-default" %></p>
+      <p><%= link_to "Send message to her/him", message_path(@user.id) ,class:"btn btn-block btn-default" %></p>
     </section>
   </aside>
 </div>

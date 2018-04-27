@@ -12,12 +12,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(content: params[:content])
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
     if @post.save
-    redirect_to ("/posts/index")
+    redirect_to posts_path , notice: 'successfully posted'
     else
-     render "new"
-   end
+      flash.now[:alert] = 'failed'
+      render :new
+    end
   end
 
   def edit
@@ -44,4 +46,9 @@ class PostsController < ApplicationController
    redirect_to ("/")
  end
  end
+
+ private
+  def post_params
+    params.require(:post).permit(:job,:place,:start_date,:end_date,:content)
+  end
 end

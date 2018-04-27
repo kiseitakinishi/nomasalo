@@ -9,6 +9,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to message_path(@message.receiver_id), notice: "success"
     else
+      @messages = Message.all
       flash.now[:alert] = " failed "
       render "show"
     end

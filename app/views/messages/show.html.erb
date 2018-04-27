@@ -10,7 +10,7 @@
   <%= form_for @message do |f| %>
     <div class="form-group">
       <%= f.label :body %>
-      <%= f.text_field :body , class: "form-control" %>
+      <%= f.text_field :body , class: "form-control" , required: true %>
       <%= f.hidden_field :receiver_id , value: params[:id] %>
       <%= f.submit "Send", class:"btn btn-block btn-info" %>
     </div>

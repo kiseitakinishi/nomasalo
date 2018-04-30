@@ -7,7 +7,7 @@
   	  <tbody>
     		<tr>
     			<td>name</td>
-    			<td><%= post.user.name %></td>
+    			<td><%= post.user.name %> (<%= post.user.country %>) ←<%= link_to "send message", "#" %></td>
     		</tr>
     		<tr>
     			<td>job</td>
@@ -15,7 +15,7 @@
     		</tr>
     		<tr>
     			<td>term</td>
-    			<td><%= post.start_date %> ~ <%= post.end_date %></td>
+    			<td><%= post.start_date.strftime("%Y-%m-%d") %> ~ <%= post.end_date.strftime("%Y-%m-%d") %></td>
     		</tr>
     		<tr>
     			<td>comment</td>

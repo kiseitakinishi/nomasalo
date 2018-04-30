@@ -1,6 +1,78 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+img.profile{
+  width:50px;
+  height:50px;
+}
+
+.text-on-image p{
+  position: absolute;
+   top: 30%;
+   left: 50%;
+   font-weight: bold;
+   font-size: 4em;
+   -ms-transform: translate(-50%,-50%);
+   -webkit-transform: translate(-50%,-50%);
+   transform: translate(-50%,-50%);
+   margin:0;
+   padding:0;
+}
+
+.text-on-image-small p{
+  position: absolute;
+   top: 40%;
+   left: 50%;
+   font-weight: bold;
+   color: white;
+   font-size: 2em;
+   -ms-transform: translate(-50%,-50%);
+   -webkit-transform: translate(-50%,-50%);
+   transform: translate(-50%,-50%);
+   margin:0;
+   padding:0;
+}
+
+.btn-group p {
+  float:left;
+  padding:10px;
+}
+
+.cover-img {
+	height: 600px;
+	display: table;
+	width: 100%;
+	background-size: cover;
+}
+
+/* ワイドスクリーン用のCSS */
+@media only screen and (min-width: 1500px) {
+	.cover-img {
+		height: 800px;
+	}
+}
+
+/* タブレット用のCSS */
+@media only screen and (min-width : 768px) and (max-width : 1200px) {
+	.cover-img {
+		height: 500px;
+	}
+}
+
+/* スマホ用のCSS */
+@media only screen and (max-width: 479px) {
+	.cover-img {
+		height: 300px;
+	}
+}
+
+.cover-text {
+	display: table-cell;
+	vertical-align: middle;
+  text-align: center;
+}
+
+
 /* universal */
 
 body {
@@ -127,14 +199,6 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
-.gravatar_edit {
-  margin-top: 15px;
-}
 /* forms */
 
 input, textarea, select, .uneditable-input {

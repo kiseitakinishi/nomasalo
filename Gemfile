@@ -21,8 +21,9 @@ gem 'bcrypt'
 gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'country_select'
+gem 'countries'
+gem 'carrierwave'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

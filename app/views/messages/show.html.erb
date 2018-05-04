@@ -1,9 +1,26 @@
 <div class="messages-index">
+<div class="message-left">
   <% @messages.each do |message| %>
-  <p>
-    <%= message.body %>
-  </p>
+<div class="message-image" >
+  <%= image_tag message.user.image  %>
+</div>
+ <% if message.receiver_id == current_user.id %>
+    <p><%= message.body %></p>
 <% end %>
+
+ <% if message.user_id == current_user.id %>
+    <p style="text-align: right;"><%= message.body %></p>
+    <% end %>
+<% end %>
+</div>
+
+<div class="messages-right">
+<%# @send_messages.each do |send_message| %>
+<div class="message-image" >
+<%#= image_tag send_message.user.image  %>
+</div>
+  <p><%#= send_message.body %></p>
+<%# end %>
 </div>
 
 <div class="message-form">

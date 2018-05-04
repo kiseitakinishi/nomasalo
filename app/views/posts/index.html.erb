@@ -7,7 +7,7 @@
   	  <tbody>
     		<tr>
     			<td>name</td>
-    			<td><%= post.user.name %> (<%= post.user.country %>) ←<%= link_to "send message", "#" %></td>
+    			<td><%= post.user.name %> (<%= post.user.country %>) ←<%= link_to "send message", message_path(post.user.id) %></td>
     		</tr>
     		<tr>
     			<td>job</td>

@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+#旅行計画を投稿する機能です。
+
   def index
     @posts = Post.all.order(created_at: :desc)
   end

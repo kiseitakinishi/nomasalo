@@ -1,6 +1,9 @@
 class MessagesController < ApplicationController
 
+  #メッセージのやり取りをするコントローラーです。
+
   def index
+    @messages = Message.where('receiver_id = ? OR user_id = ?',current_user.id,current_user.id)
   end
 
   def create
@@ -11,13 +14,14 @@ class MessagesController < ApplicationController
     else
       @messages = Message.all
       flash.now[:alert] = " failed "
-      render "show"
+      render :show
     end
   end
 
   def show
     @message = Message.new
-    @messages = Message.all
+    @messages = Message.where('receiver_id = ? AND user_id = ? OR receiver_id = ? AND user_id = ?',
+      current_user.id,params[:id],params[:id],current_user.id).order(created_at: :asc)
   end
 
   private

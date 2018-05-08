@@ -1,44 +1,32 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <% if logged_in? %>
-    <%= link_to "Nomasalo", "/posts/index", id: "logo" %>
-    <% else %>
-      <%= link_to("Nomasalo","/", id: "logo" )%>
-    <% end %>
-      <nav>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <%= link_to "Post","/posts/new"%>
-          </li>
-          <li>
-            <%= link_to "Lists", "/posts/index" %>
-          </li>
-          <li>
-            <%= link_to "Users", "/users/index" %>
-          </li>
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
+
+  <% if logged_in? %>
+  <%= link_to "Nomasalo", posts_path, class: "navbar-brand" %>
+  <% else %>
+    <%= link_to "Nomasalo","/", class: "navbar-brand" %>
+  <% end %>
+
+  <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto">
       <% if logged_in? %>
-          <li>
-            <%= link_to "Users", users_path %>
+          <li class="navbar-item">
+            <%= link_to @current_user.name , user_path(id:current_user) , class: "navbar-link" %>
           </li>
-            <li class="dropdown">
-           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-             <%= @current_user.name %>
-             <b class="caret"></b>
-           </a>
-           <ul class="dropdown-menu">
-             <li>
-               <%= link_to "My page", current_user %>
-             </li>
-             <li>
-               <%= link_to "Log out", logout_path, method: :delete %>
-             </li>
-            </ul>
-         </li>
-       <% else %>
-         <li><%= link_to "Log in", login_path %></li>
-       <% end %>
+          <li class="navbar-item">
+            <p><%= link_to "Log-out", logout_path, method: :delete ,class: "navbar-link" %></p>
           </li>
-      </ul>
-    </nav>
+          <% else %>
+          <li class="navbar-item">
+            <%= link_to "Sign-up", signup_path , class: "navbar-link"  %>
+          </li>
+            <li class="navbar-item">
+              <%= link_to "Log-in", login_path , class: "navbar-link"  %>
+            </li>
+      <% end %>
+    </ul>
   </div>
-</header>
+</nav>

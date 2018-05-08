@@ -1,13 +1,12 @@
 class PostsController < ApplicationController
 
-#旅行計画を投稿する機能です。
+#ユーザー（サロン側）が旅行計画を投稿する機能です。
+
+before_action :logged_in_user, only: [:new, :create, :edit, :update]
+before_action :correct_user, only: [:edit, :update]
 
   def index
     @posts = Post.all.order(created_at: :desc)
-  end
-
-  def show
-    @post = Post.find_by(id: params[:id])
   end
 
   def new
@@ -33,9 +32,9 @@ class PostsController < ApplicationController
    @post = Post.find_by(id: params[:id])
    if @post.update(content:  params[:content])
      flash[:notice] = "Your comment has been updated."
-    redirect_to("/posts/index")
+    redirect_to posts_path
    else
-    redirect_to("/posts/#{@post.id}/edit")
+    redirect_to edit_post_path(@post.id)
   end
  end
 
@@ -44,9 +43,9 @@ class PostsController < ApplicationController
    if @post.present?
    @post.destroy
     flash[:notice] = "Your comment has been deleted."
-   redirect_to("/posts/index")
+   redirect_to posts_path
    else
-   redirect_to ("/")
+   redirect_to root_path
  end
  end
 

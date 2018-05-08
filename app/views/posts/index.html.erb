@@ -1,26 +1,31 @@
 <h1>Posting lists</h1>
 
-
-<table class="table">
-  <thead>
+<div class="container" style="margin-top:30px">
     <% @posts.each do |post| %>
+    <table class="table table-bordered">
   	  <tbody>
     		<tr>
-    			<td>name</td>
-    			<td><%= post.user.name %> (<%= post.user.country %>) ←<%= link_to "send message", message_path(post.user.id) %></td>
+    			<td class="table-success">name</td>
+    			<td><%= post.user.name %> (<%= country_name(post.user.country) if !post.user.country.nil? %>) ←<%= link_to "send message", message_path(post.user.id) %></td>
     		</tr>
     		<tr>
-    			<td>job</td>
+    			<td class="table-success">job</td>
     			<td><%= post.job %></td>
     		</tr>
     		<tr>
-    			<td>term</td>
+    			<td class="table-success">term</td>
     			<td><%= post.start_date.strftime("%Y-%m-%d") %> ~ <%= post.end_date.strftime("%Y-%m-%d") %></td>
     		</tr>
     		<tr>
-    			<td>comment</td>
+    			<td class="table-success">comment</td>
     			<td><%= post.content %></td>
     		</tr>
+        </tbody>
+      </table>
   	  <% end %>
-    </tbody>
-</table>
+</div>
+<style>
+  .table-success {
+    width: 20%;
+  }
+</style>

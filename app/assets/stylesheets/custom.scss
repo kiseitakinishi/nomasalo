@@ -1,40 +1,17 @@
+/* ナビゲーションのリンク */
+ .navbar-link{
+   color:#fff;
+   display: inline-block;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   margin-right: 15px;
+   font-size: 20px;
+ }
+
+/* ユーザーの画像サイズ指定 */
 img.profile{
   width:50px;
   height:50px;
-}
-
-.messages-right {
- 	position: relative;
-	display: inline-block;
- 	margin: 1.5em 15px 1.5em 0;
-	padding: 7px 10px;
-	min-width: 120px;
- 	max-width: 100%;
- 	color: #555;
-	font-size: 16px;
-	background: #e0edff;
-}
-
-.messages-right:before{
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: 100%;
- 	margin-top: -15px;
-	border: 15px solid transparent;
-	border-left: 15px solid #e0edff;
-}
-
-.messages-right p {
-  text-align: right;
-	margin: 0;
-	padding: 0;
-}
-
-.messages-left p {
-  text-align: right;
-	margin: 0;
-	padding: 0;
 }
 
 .message-image img{
@@ -44,6 +21,8 @@ img.profile{
   width:30px;
   height:30px;
 }
+
+/*トップ画像*/
 
 .text-on-image p{
   position: absolute;
@@ -84,27 +63,6 @@ img.profile{
 	background-size: cover;
 }
 
-/* ワイドスクリーン用のCSS */
-@media only screen and (min-width: 1500px) {
-	.cover-img {
-		height: 800px;
-	}
-}
-
-/* タブレット用のCSS */
-@media only screen and (min-width : 768px) and (max-width : 1200px) {
-	.cover-img {
-		height: 500px;
-	}
-}
-
-/* スマホ用のCSS */
-@media only screen and (max-width: 479px) {
-	.cover-img {
-		height: 300px;
-	}
-}
-
 .cover-text {
 	display: table-cell;
 	vertical-align: middle;
@@ -112,7 +70,7 @@ img.profile{
 }
 
 
-/* universal */
+/* 全体 */
 
 body {
   padding-top: 60px;
@@ -134,7 +92,7 @@ textarea {
   margin-bottom: 10px;
 }
 
-/* typography */
+/* 文字 */
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -161,24 +119,7 @@ p {
   line-height: 1.7em;
 }
 
-/* header */
-
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-}
-
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
-}
-/* footer */
+/* フッター */
 
 footer {
   margin-top: 45px;
@@ -210,7 +151,7 @@ footer ul li {
   margin-left: 15px;
   margin-right: 15px;
 }
-/* sidebar */
+/* サイドバー */
 
 aside {
   section.user_info {
@@ -238,13 +179,11 @@ aside {
   }
 }
 
-/* forms */
+/* フォーム */
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  // width: 100%;
   margin-bottom: 15px;
-  // @include box_sizing;
 }
 
 input {
@@ -259,26 +198,9 @@ input {
   }
 }
 
-.field_with_errors {
-  @extend .has-error;
-  .form-control {
-    color: $state-danger-text;
-  }
-}
 
-/* Users index */
 
-.users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
-  }
-}
-
-/* フラッシュ ================================ */
+/* フラッシュ */
 .flash {
   padding: 10px 0;
   color: white;

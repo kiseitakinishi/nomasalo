@@ -1,3 +1,0 @@
-<p><%= @post.content %> <%= link_to("EDIT","/posts/#{@post.id}/edit")%>
-  / <%= link_to("DELETE", "/posts/#{@post.id}/destroy", {method: "post",data:{confirm:'Sure?'}}) %></p>
-<p><%= @post.created_at %></p>

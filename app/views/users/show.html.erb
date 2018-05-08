@@ -9,11 +9,11 @@
         <li><%= @user.email %></li>
         <li><%= @user.sex %></li>
         <li><%= @user.age.strftime("%Y-%m-%d") %></li>
-        <li><%= @user.country %></li>
+        <li><%= country_name(@user.country) if !@user.country.nil? %></li>
       </ul>
       <p><%= link_to "Post your plan", new_post_path ,class:"btn btn-block btn-info" %></p>
       <p><%= link_to "Edit your information", edit_user_path(current_user),class:"btn btn-block btn-success"%></p>
-      <p><%= link_to "Send message to her/him", message_path(@user.id) ,class:"btn btn-block btn-default" %></p>
+      <p><%= link_to "Send message to her/him", message_path(@user.id) ,class:"btn btn-block btn-primary" %></p>
     </section>
   </aside>
 </div>

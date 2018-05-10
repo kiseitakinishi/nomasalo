@@ -9,6 +9,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @review = Review.new
+    @reviews = @user.reviews
+    @star = 0
+    @reviews.each do |review|
+      @star += review.star
+    end
+
   end
 
   def new

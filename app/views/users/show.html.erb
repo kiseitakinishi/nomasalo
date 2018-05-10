@@ -6,6 +6,7 @@
           <%= @user.name %>
         </h1>
       <ul>
+        <li><%= (@star/@reviews.count).round(1) %></li>
         <li><%= @user.email %></li>
         <li><%= @user.sex %></li>
         <li><%= @user.age.strftime("%Y-%m-%d") %></li>
@@ -17,3 +18,30 @@
     </section>
   </aside>
 </div>
+
+<%= form_for @review do |f| %>
+
+ <%= f.hidden_field :user_id, value: current_user.id %>
+ <%= f.hidden_field :receiver_id, value: params[:id] %>
+
+<div class="col-md-6 col-md-offset-3">
+
+        <div class="field" id="star">
+            <%= f.label :star %>
+            <%= f.hidden_field :star, id: :review_star %>
+          </div>
+
+         <%= f.text_area :comment, :class => "form-control", :size => "50x20"  %><br>
+         <%= f.submit "review", :class => "btn btn-primary" %>
+
+ </div>
+<% end %>
+
+<script>
+$('#star').raty({
+  size     : 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  scoreName: 'review[star]'
+});
+</script>

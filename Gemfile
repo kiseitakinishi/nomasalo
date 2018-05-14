@@ -30,9 +30,6 @@ gem 'dotenv-rails'
 group :development, :test do
   gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri
-end
-
-group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 end
@@ -45,3 +42,7 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :product do
+  gem "pg"
+end

@@ -43,6 +43,6 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-group :product do
+group :production do
   gem "pg"
 end
